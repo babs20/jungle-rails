@@ -48,14 +48,11 @@
           <% end %>
         </li>
         <% if current_user %>
-          <li>
-            <a>Hello, <%= current_user.name %>!</a>
-          </li>
           <li><%= link_to "Logout", '/logout' %></li>
         <% else %>
             <li><%= link_to 'Login', '/login' %> </li>
             <li><%= link_to 'Register', '/signup' %> </li>
-          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
