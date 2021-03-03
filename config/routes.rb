@@ -21,8 +21,12 @@ Rails
       resources :categories, except: %i[edit update destroy show]
     end
 
-    resources :users, only: %i[create new]
-    resources :sessions, only: %i[create new destroy]
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
+
+    get '/signup' => 'users#new'
+    post '/users' => 'users#create'
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
