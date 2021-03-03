@@ -47,7 +47,18 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+        <% if current_user %>
+          <li>
+            <a>Hello, <%= current_user.name %>!</a>
+          </li>
+          <li><%= link_to "Logout", "sessions/#{current_user.id}", method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Login', '/sessions/new' %> </li>
+            <li><%= link_to 'Register', '/users/new' %> </li>
+          <% end %>
       </ul>
     </div>
   </div>
 </nav>
+
+    
