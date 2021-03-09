@@ -24,6 +24,6 @@ RSpec.feature 'AddToCarts', type: :feature, js: true do
     # commented out b/c it's for debugging only
     save_and_open_screenshot
 
-    expect(page.find('li', text: 'My Cart (1)')).to exist('My Cart (1)')
+    expect(page.find('li', text: 'My Cart (1)')).to have_content('My Cart (1)')
   end
 end
