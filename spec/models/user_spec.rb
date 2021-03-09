@@ -8,7 +8,8 @@ RSpec.describe User, type: :model do
         it 'creates a new user with the given params' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@gmail.com',
               password: 'password',
               password_confirmation: 'password',
@@ -23,7 +24,8 @@ RSpec.describe User, type: :model do
         it 'throws an error' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@gmail.com',
               password: nil,
               password_confirmation: nil,
@@ -42,7 +44,8 @@ RSpec.describe User, type: :model do
         it 'throws an error' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@gmail.com',
               password: 'password',
               password_confirmation: 'passwordsss',
@@ -61,7 +64,8 @@ RSpec.describe User, type: :model do
         it 'creates a new user with the given params' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@gmail.com',
               password: 'password',
               password_confirmation: 'password',
@@ -76,7 +80,8 @@ RSpec.describe User, type: :model do
         it 'throws an error' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: nil,
               password: 'password',
               password_confirmation: 'password',
@@ -90,7 +95,8 @@ RSpec.describe User, type: :model do
         it 'throws an error' do
           @user =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@gmail.com',
               password: 'password',
               password_confirmation: 'password',
@@ -98,7 +104,8 @@ RSpec.describe User, type: :model do
 
           @user2 =
             User.create(
-              name: 'Brady',
+              first_name: 'Brady',
+              last_name: 'Blair',
               email: 'test@GMAIL.com',
               password: 'password',
               password_confirmation: 'password',
@@ -118,7 +125,8 @@ RSpec.describe User, type: :model do
       it 'returns the user object' do
         @user =
           User.create(
-            name: 'Brady',
+            first_name: 'Brady',
+            last_name: 'Blair',
             email: 'test@gmail.com',
             password: 'password',
             password_confirmation: 'password',
@@ -136,7 +144,8 @@ RSpec.describe User, type: :model do
       it 'returns nil' do
         @user =
           User.create(
-            name: 'Brady',
+            first_name: 'Brady',
+            last_name: 'Blair',
             email: 'test@gmail.com',
             password: 'password',
             password_confirmation: 'password',
@@ -153,7 +162,8 @@ RSpec.describe User, type: :model do
       it 'returns the user object' do
         @user =
           User.create(
-            name: 'Brady',
+            first_name: 'Brady',
+            last_name: 'Blair',
             email: 'test@gmail.com',
             password: 'password',
             password_confirmation: 'password',
@@ -171,7 +181,8 @@ RSpec.describe User, type: :model do
       it 'returns the user object' do
         @user =
           User.create(
-            name: 'Brady',
+            first_name: 'Brady',
+            last_name: 'Blair',
             email: 'test@GMAIL.com',
             password: 'password',
             password_confirmation: 'password',
