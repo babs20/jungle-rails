@@ -1,0 +1,10 @@
+<section>
+  <h4><%= review.user.first_name %> <%=review.user.last_name %></h4>
+
+  <h4>Rating: <%= review.rating.to_s %></h4>
+  
+  <h5>Reviewed on <%= review.updated_at.strftime("%B %e, %Y") %></h5>
+  <blockquote>
+    <p><%= review.description %></p>
+  </blockquote>
+</section>

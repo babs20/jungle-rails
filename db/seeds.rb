@@ -29,6 +29,15 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+user1 =
+  User.create!(
+    first_name: 'Furniture',
+    last_name: 'Man',
+    email: 'test@gmail.com',
+    password: 'password',
+    password_confirmation: 'password',
+  )
+
 ## PRODUCTS
 
 puts 'Re-creating Products ...'
@@ -153,6 +162,42 @@ cat3.products.create!(
     quantity: 0,
     price: 2_483.75,
   },
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 5,
+  product_id: 1,
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 3,
+  product_id: 1,
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 1,
+  product_id: 1,
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 5,
+  product_id: 2,
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 3,
+  product_id: 2,
+)
+
+user1.reviews.create!(
+  description: Faker::Hipster.paragraph(5),
+  rating: 1,
+  product_id: 2,
 )
 
 puts 'DONE!'
