@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
           total: item[:total_price_cents], # Number
         }
       end
+    OrderMailer.order_email(@products, @order).deliver_now
   end
 
   def create
@@ -17,7 +18,6 @@ class OrdersController < ApplicationController
     order = create_order(charge)
 
     if order.valid?
-      OrderMailer.welcome_email(order).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
