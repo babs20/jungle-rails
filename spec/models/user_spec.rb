@@ -118,6 +118,75 @@ RSpec.describe User, type: :model do
         end
       end
     end
+
+    # Name TESTS
+    describe 'name validation' do
+      context 'given a valid first name' do
+        it 'creates a new user with the given params' do
+          @user =
+            User.create(
+              first_name: 'Brady',
+              last_name: 'Blair',
+              email: 'test@gmail.com',
+              password: 'password',
+              password_confirmation: 'password',
+            )
+
+          expect(@user.errors.full_messages.length).to eql(0)
+          expect(@user[:first_name]).to eql('Brady')
+        end
+      end
+
+      context 'given nil for first name field' do
+        it 'throws an error' do
+          @user =
+            User.create(
+              first_name: nil,
+              last_name: 'Blair',
+              email: 'test@gmail.com',
+              password: 'password',
+              password_confirmation: 'password',
+            )
+          expect(@user.errors.full_messages.length).to eql(1)
+          expect(@user.errors.full_messages[0]).to eql(
+            'First name can\'t be blank',
+          )
+        end
+      end
+
+      context 'given a valid last name' do
+        it 'creates a new user with the given params' do
+          @user =
+            User.create(
+              first_name: 'Brady',
+              last_name: 'Blair',
+              email: 'test@gmail.com',
+              password: 'password',
+              password_confirmation: 'password',
+            )
+
+          expect(@user.errors.full_messages.length).to eql(0)
+          expect(@user[:last_name]).to eql('Blair')
+        end
+      end
+
+      context 'given nil for last name field' do
+        it 'throws an error' do
+          @user =
+            User.create(
+              first_name: 'Brady',
+              last_name: nil,
+              email: 'test@gmail.com',
+              password: 'password',
+              password_confirmation: 'password',
+            )
+          expect(@user.errors.full_messages.length).to eql(1)
+          expect(@user.errors.full_messages[0]).to eql(
+            'Last name can\'t be blank',
+          )
+        end
+      end
+    end
   end
 
   describe '.authenticate_with_credentials' do
