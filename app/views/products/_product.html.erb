@@ -1,9 +1,11 @@
 <article class="product">
+<% #raise product.reviews.inspect %>
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+    <h4>Rating: <%= product.reviews.average(:rating) ? "#{product.reviews.average(:rating).round()} / 5" : 'N/A'%></h4>
   </header>
   <p class="description">
     <%= product.description %>
