@@ -39,7 +39,7 @@
               <ul>
                 <% form.object.errors.full_messages.each do |error| %>
                   <li><%= error %></li>
-                <%nd %>
+                <% end %>
               </ul>
             </div>
           <% end %>
@@ -59,10 +59,14 @@
       </div>
       <% end %>
       <br>
-      <% p @reviews %>
-      <% @product.reviews.reverse.each do |review| %>
-        <%= render 'products/review', review: review%>
-        <br>
+
+      <% if @product.reviews.length == 0 %>
+        <div class="alert alert-warning">There are currently no reviews for this product!</div>
+      <% else %>
+        <% @product.reviews.reverse.each do |review| %>
+          <%= render 'products/review', review: review%>
+          <br>
+        <% end %>
       <% end %>
     </div>
 
