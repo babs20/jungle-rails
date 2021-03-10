@@ -29,11 +29,10 @@
   <br>
   <article class="product-detail">
     <div class="row">
-      <h2>Reviews</h2>
+      <h2>Customer Reviews</h2>
+    <% if current_user %>
       <div>
-      <%# <%raise @review.inspect%>
         <%= form_for [@product, @review] do |form| %>
-
           <% if form.object.errors.any? %>
             <div class="alert alert-danger">
               <strong>The following errors prevented saving:</strong>
@@ -58,10 +57,11 @@
 
         <% end %>
       </div>
+      <% end %>
       <br>
       <% p @reviews %>
-      <% @product.reviews.each do |review| %>
-        <%= render 'review', review: review%>
+      <% @product.reviews.reverse.each do |review| %>
+        <%= render 'products/review', review: review%>
         <br>
       <% end %>
     </div>
