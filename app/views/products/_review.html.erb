@@ -7,4 +7,7 @@
   <blockquote>
     <p><%= review.description %></p>
   </blockquote>
+  <%if current_user && current_user.id == review.user.id%>
+    <%= button_to 'Delete', { controller: :reviews, action: 'destroy', id: review.id, product_id: review.product_id }, method: :delete, class: 'btn btn-xs btn-danger'%>
+  <%end%>
 </section>
